@@ -17,10 +17,10 @@ html,body{
   width:100%;
   height:100%;
   overflow:hidden;
+  margin:0;
 }
 
 body{
-  margin:0;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -77,25 +77,53 @@ p{
   p{font-size:30px;}
   .paper{padding:14px 40px;}
 }
+
+/* 🎵 Tap to Play Music Button */
+#playButton {
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:#ff5c8d;
+  color:white;
+  font-family:'Zeyada', cursive;
+  font-size:28px;
+  padding:20px 40px;
+  border-radius:30px;
+  box-shadow:0 8px 15px rgba(0,0,0,.3);
+  cursor:pointer;
+  z-index:9999;
+  text-align:center;
+  transition:0.3s;
+}
+#playButton:hover{
+  transform:translate(-50%,-50%) scale(1.1);
+}
 </style>
 </head>
 
 <body>
 
+<!-- ❤️ Heart Paper -->
 <div class="paper heart"></div>
 
+<!-- 💌 Papers with text + images -->
 <div class="paper image"><p>You were the highlight of my day 🔦</p><img src="images/7.jpeg"></div>
 <div class="paper image"><p>You make my heart smile 😏</p><img src="images/4.jpeg"></div>
 <div class="paper image"><p>Your voice is my favorite sound 🔊</p><img src="images/5.jpeg"></div>
 <div class="paper image"><p>I’m obsessed with you 💖</p><img src="images/6.jpeg"></div>
 <div class="paper image"><p>I fell in love with you 😍</p><img src="images/1.jpeg"></div>
 <div class="paper image"><p>Tu meri fav person hai ❤️</p><img src="images/2.jpeg"></div>
-<div class="paper image"><p>How can someone be so cute 😭</p><img src="images/3.jpeg"></div>
+<div class="paper image"><p>How can someone be so cute 😭</p><img src="images/3.jpg"></div>
 <div class="paper"><p>Drag the papers 💌</p></div>
 
-<audio id="bgMusic" loop>
+<!-- 🎵 Music -->
+<audio id="bgMusic" loop preload="auto">
   <source src="You_Mean_To_Tell_Me_Tatiana_Manaois_lyrics_256kbps.webm" type="audio/mpeg">
 </audio>
+
+<!-- 🎵 Tap to Play Button -->
+<div id="playButton">Tap to Play Music 🎵</div>
 
 <script>
 let highestZ = 1;
@@ -171,7 +199,7 @@ document.querySelectorAll(".paper").forEach(p => {
   papers.push({ el: p, obj });
 });
 
-/* OPTIONAL SHAKE (SAFE) */
+/* SHAKE */
 if (window.DeviceMotionEvent) {
   let lastShake = 0;
   window.addEventListener("devicemotion", e => {
@@ -186,15 +214,15 @@ if (window.DeviceMotionEvent) {
   });
 }
 
-/* MUSIC */
+/* 🎵 Play Music Button */
 const music = document.getElementById("bgMusic");
-function startMusic() {
-  music.play().catch(() => {});
-  document.removeEventListener("touchstart", startMusic);
-  document.removeEventListener("click", startMusic);
-}
-document.addEventListener("touchstart", startMusic, { once: true });
-document.addEventListener("click", startMusic, { once: true });
+const btn = document.getElementById("playButton");
+
+btn.addEventListener("click", () => {
+  music.play().then(()=>{
+    btn.style.display="none"; // hide button after play
+  }).catch(()=>{});
+});
 </script>
 
 </body>
