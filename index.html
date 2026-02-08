@@ -2,87 +2,80 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Love Papers 💌</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
 
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
-  background-size: 1000px;
-  background-position: center;
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
 }
 
-.paper {
-  position: absolute;
-  background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
-  background-size: 500px;
-  padding: 20px 90px;
-  box-shadow: 2px 15px 20px rgba(0,0,0,0.4);
-  cursor: grab;
-  transition: box-shadow 0.2s ease;
+body{
+  margin:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
+  background-size:1000px;
+  background-position:center;
 }
 
-.paper:active {
-  cursor: grabbing;
-  box-shadow: 0 25px 35px rgba(0,0,0,0.6);
+.paper{
+  position:absolute;
+  background:url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
+  background-size:500px;
+  padding:20px 90px;
+  box-shadow:2px 15px 20px rgba(0,0,0,.4);
+  cursor:grab;
+  user-select:none;
+  touch-action:none;
+  transition:transform .8s ease;
 }
 
-.paper.image {
-  padding: 15px;
+.paper.image{ padding:15px; }
+
+.paper img{
+  width:100%;
+  max-height:320px;
+  pointer-events:none;
 }
 
-.paper img {
-  width: 100%;
-  max-height: 450px;
-  user-select: none;
-  pointer-events: none;
+.paper.heart{
+  width:200px;
+  height:200px;
+  padding:0;
+  border-radius:50%;
 }
 
-.paper.heart {
-  width: 200px;
-  height: 200px;
-  padding: 0;
-  border-radius: 50%;
+.paper.heart::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png")
+  center/140px no-repeat;
+  opacity:.6;
 }
 
-.paper.heart::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 140px;
-  opacity: 0.6;
+p{
+  font-family:'Zeyada', cursive;
+  font-size:44px;
+  color:rgb(0,0,100);
+  opacity:.85;
+  text-align:center;
 }
 
-p {
-  font-family: 'Zeyada', cursive;
-  font-size: 48px;
-  color: rgb(0,0,100);
-  opacity: 0.8;
-  user-select: none;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  p {
-    font-size: 32px;
-  }
-  .paper {
-    padding: 15px 40px;
-  }
+@media(max-width:600px){
+  p{font-size:30px;}
+  .paper{padding:14px 40px;}
 }
 </style>
 </head>
@@ -91,100 +84,95 @@ p {
 
 <div class="paper heart"></div>
 
-<div class="paper image">
-  <p>You were the highlight of my day 🔦</p>
-  <img src="images/7.jpeg">
-</div>
+<div class="paper image"><p>You were the highlight of my day 🔦</p><img src="images/7.jpeg"></div>
+<div class="paper image"><p>You make my heart smile 😏</p><img src="images/4.jpeg"></div>
+<div class="paper image"><p>Your voice is my favorite sound 🔊</p><img src="images/5.jpeg"></div>
+<div class="paper image"><p>I’m obsessed with you 💖</p><img src="images/6.jpeg"></div>
+<div class="paper image"><p>I fell in love with you 😍</p><img src="images/1.jpeg"></div>
+<div class="paper image"><p>Tu meri fav person hai ❤️</p><img src="images/2.jpeg"></div>
+<div class="paper image"><p>How can someone be so cute 😭</p><img src="images/3.jpg"></div>
+<div class="paper"><p>Drag the papers 💌</p></div>
 
-<div class="paper image">
-  <p>You make my heart smile 😏</p>
-  <img src="images/4.jpeg">
-</div>
-
-<div class="paper image">
-  <p>Your voice is my favorite sound 🔊</p>
-  <img src="images/5.jpeg">
-</div>
-
-<div class="paper image">
-  <p>I’m obsessed with you 💖</p>
-  <img src="images/6.jpeg">
-</div>
-
-<div class="paper image">
-  <p>I fell in love with you 😍</p>
-  <img src="images/1.jpeg">
-</div>
-
-<div class="paper image">
-  <p>Tu meri fav person hai ❤️</p>
-  <img src="images/2.jpeg">
-</div>
-
-<div class="paper image">
-  <p>How can someone be so cute 😭</p>
-  <img src="images/3.jpg">
-</div>
-
-<div class="paper">
-  <p>Drag the papers 💌</p>
-</div>
-<audio id="bgMusic" autoplay loop>
-  <source src="You_Mean_To_Tell_Me_Tatiana_Manaois_lyrics_256kbps.webm" type="audio/mpeg">
+<audio id="bgMusic" loop>
+  <source src="You_Mean_To_Tell_Me_Tatiana_Manaois_lyrics_256kbps.webm">
 </audio>
 
 <script>
 let highestZ = 1;
+const papers = [];
 
-class Paper {
-  holding = false;
-x = 0;
-y = 0;
+class Paper{
+  x=0; y=0;
+  rot=Math.random()*40-20;
+  holding=false;
 
-  rot = Math.random() * 30 - 15;
-
-  init(el) {
+  scatter(el, animate=true){
+    const vw=innerWidth, vh=innerHeight;
+    this.x = Math.random()*(vw-200)-(vw/2)+100;
+    this.y = Math.random()*(vh-200)-(vh/2)+100;
+    this.rot = Math.random()*40-20;
+    el.style.transition = animate ? "transform .8s ease" : "none";
     el.style.transform =
-      `translate(${this.x}px, ${this.y}px) rotate(${this.rot}deg)`;
+      `translate(${this.x}px,${this.y}px) rotate(${this.rot}deg)`;
+  }
 
-    el.addEventListener('mousedown', e => {
-      this.holding = true;
-      el.style.zIndex = highestZ++;
-      this.startX = e.clientX;
-      this.startY = e.clientY;
-    });
+  init(el){
+    this.scatter(el,true);
 
-    window.addEventListener('mousemove', e => {
-      if (!this.holding) return;
-      this.x += e.clientX - this.startX;
-      this.y += e.clientY - this.startY;
-      this.startX = e.clientX;
-      this.startY = e.clientY;
-      el.style.transform =
-        `translate(${this.x}px, ${this.y}px) rotate(${this.rot}deg)`;
-    });
+    const start=e=>{
+      this.holding=true;
+      el.style.zIndex=highestZ++;
+      const t=e.touches?e.touches[0]:e;
+      this.sx=t.clientX; this.sy=t.clientY;
+    };
 
-    window.addEventListener('mouseup', () => {
-      this.holding = false;
-    });
+    const move=e=>{
+      if(!this.holding) return;
+      const t=e.touches?e.touches[0]:e;
+      this.x+=t.clientX-this.sx;
+      this.y+=t.clientY-this.sy;
+      this.sx=t.clientX; this.sy=t.clientY;
+      el.style.transition="none";
+      el.style.transform=
+        `translate(${this.x}px,${this.y}px) rotate(${this.rot}deg)`;
+    };
 
-    el.addEventListener('dblclick', () => {
-      el.classList.toggle('heart');
-    });
+    const end=()=>this.holding=false;
+
+    el.addEventListener("mousedown",start);
+    el.addEventListener("touchstart",start);
+    window.addEventListener("mousemove",move);
+    window.addEventListener("touchmove",move);
+    window.addEventListener("mouseup",end);
+    window.addEventListener("touchend",end);
+
+    el.addEventListener("dblclick",()=>el.classList.toggle("heart"));
   }
 }
 
-document.querySelectorAll('.paper').forEach(p => {
-  new Paper().init(p);
+/* INIT */
+document.querySelectorAll(".paper").forEach(p=>{
+  const obj=new Paper();
+  obj.init(p);
+  papers.push({el:p,obj});
 });
 
+/* 🔄 SHAKE TO RESHUFFLE */
+let lastShake=0;
+window.addEventListener("devicemotion",e=>{
+  const a=e.accelerationIncludingGravity;
+  if(!a) return;
+  const force=Math.abs(a.x)+Math.abs(a.y)+Math.abs(a.z);
+  if(force>30 && Date.now()-lastShake>1000){
+    lastShake=Date.now();
+    papers.forEach(p=>p.obj.scatter(p.el,true));
+  }
+});
 
-document.body.addEventListener('click', () => {
-  const music = document.getElementById('bgMusic');
-  music.play();
-}, { once: true });
-
-
+/* MUSIC */
+document.body.addEventListener("touchstart",()=>{
+  document.getElementById("bgMusic").play();
+},{once:true});
 </script>
 
 </body>
