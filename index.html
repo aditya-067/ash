@@ -223,6 +223,32 @@ btn.addEventListener("click", () => {
     btn.style.display="none"; // hide button after play
   }).catch(()=>{});
 });
+
+el.addEventListener("dblclick", () => {
+  if(el.classList.contains("image")){
+    // create a temporary heart overlay
+    let heart = document.createElement("div");
+    heart.style.position = "absolute";
+    heart.style.top = "50%";
+    heart.style.left = "50%";
+    heart.style.transform = "translate(-50%,-50%)";
+    heart.style.width = "150px";
+    heart.style.height = "150px";
+    heart.style.background = "url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png') center/contain no-repeat";
+    heart.style.opacity = "0.8";
+    heart.style.pointerEvents = "none";
+    heart.style.zIndex = "999";
+
+    el.appendChild(heart);
+
+    // remove heart after 1.2s
+    setTimeout(() => el.removeChild(heart), 1200);
+  } else {
+    // normal heart paper toggle
+    el.classList.toggle("heart");
+  }
+});
+
 </script>
 
 </body>
