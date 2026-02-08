@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Love Papers 💌</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
+  background-size: 1000px;
+  background-position: center;
+}
+
+.paper {
+  position: absolute;
+  background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
+  background-size: 500px;
+  padding: 20px 90px;
+  box-shadow: 2px 15px 20px rgba(0,0,0,0.4);
+  cursor: grab;
+  transition: box-shadow 0.2s ease;
+}
+
+.paper:active {
+  cursor: grabbing;
+  box-shadow: 0 25px 35px rgba(0,0,0,0.6);
+}
+
+.paper.image {
+  padding: 15px;
+}
+
+.paper img {
+  width: 100%;
+  max-height: 450px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.paper.heart {
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.paper.heart::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 140px;
+  opacity: 0.6;
+}
+
+p {
+  font-family: 'Zeyada', cursive;
+  font-size: 48px;
+  color: rgb(0,0,100);
+  opacity: 0.8;
+  user-select: none;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  p {
+    font-size: 32px;
+  }
+  .paper {
+    padding: 15px 40px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="paper heart"></div>
+
+<div class="paper image">
+  <p>You were the highlight of my day 🔦</p>
+  <img src="images/7.jpeg">
+</div>
+
+<div class="paper image">
+  <p>You make my heart smile 😏</p>
+  <img src="images/4.jpeg">
+</div>
+
+<div class="paper image">
+  <p>Your voice is my favorite sound 🔊</p>
+  <img src="images/5.jpeg">
+</div>
+
+<div class="paper image">
+  <p>I’m obsessed with you 💖</p>
+  <img src="images/6.jpeg">
+</div>
+
+<div class="paper image">
+  <p>I fell in love with you 😍</p>
+  <img src="images/1.jpeg">
+</div>
+
+<div class="paper image">
+  <p>Tu meri fav person hai ❤️</p>
+  <img src="images/2.jpeg">
+</div>
+
+<div class="paper image">
+  <p>How can someone be so cute 😭</p>
+  <img src="images/3.jpg">
+</div>
+
+<div class="paper">
+  <p>Drag the papers 💌</p>
+</div>
+<audio id="bgMusic" autoplay loop>
+  <source src="You_Mean_To_Tell_Me_Tatiana_Manaois_lyrics_256kbps.webm" type="audio/mpeg">
+</audio>
+
+<script>
+let highestZ = 1;
+
+class Paper {
+  holding = false;
+x = 0;
+y = 0;
+
+  rot = Math.random() * 30 - 15;
+
+  init(el) {
+    el.style.transform =
+      `translate(${this.x}px, ${this.y}px) rotate(${this.rot}deg)`;
+
+    el.addEventListener('mousedown', e => {
+      this.holding = true;
+      el.style.zIndex = highestZ++;
+      this.startX = e.clientX;
+      this.startY = e.clientY;
+    });
+
+    window.addEventListener('mousemove', e => {
+      if (!this.holding) return;
+      this.x += e.clientX - this.startX;
+      this.y += e.clientY - this.startY;
+      this.startX = e.clientX;
+      this.startY = e.clientY;
+      el.style.transform =
+        `translate(${this.x}px, ${this.y}px) rotate(${this.rot}deg)`;
+    });
+
+    window.addEventListener('mouseup', () => {
+      this.holding = false;
+    });
+
+    el.addEventListener('dblclick', () => {
+      el.classList.toggle('heart');
+    });
+  }
+}
+
+document.querySelectorAll('.paper').forEach(p => {
+  new Paper().init(p);
+});
+
+
+document.body.addEventListener('click', () => {
+  const music = document.getElementById('bgMusic');
+  music.play();
+}, { once: true });
+
+
+</script>
+
+</body>
+</html>
