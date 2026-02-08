@@ -94,8 +94,9 @@ p{
 <div class="paper"><p>Drag the papers 💌</p></div>
 
 <audio id="bgMusic" loop>
-  <source src="You_Mean_To_Tell_Me_Tatiana_Manaois_lyrics_256kbps.webm">
+  <source src="You_Mean_To_Tell_Me_Tatiana_Manaois_lyrics_256kbps.webm" type="audio/mpeg">
 </audio>
+
 
 <script>
 let highestZ = 1;
@@ -173,6 +174,20 @@ window.addEventListener("devicemotion",e=>{
 document.body.addEventListener("touchstart",()=>{
   document.getElementById("bgMusic").play();
 },{once:true});
+
+
+const music = document.getElementById("bgMusic");
+
+function startMusic(){
+  music.play().catch(()=>{});
+  document.removeEventListener("touchstart", startMusic);
+  document.removeEventListener("click", startMusic);
+}
+
+document.addEventListener("touchstart", startMusic);
+document.addEventListener("click", startMusic);
+
+
 </script>
 
 </body>
